@@ -43,3 +43,19 @@ BEGIN
  RETURN POWER(maxYear - minYear, 2);
 END;
 
+--create or replace FUNCTION SimCalculation (MIDa NUMBER, MIDb NUMBER, maxDist NUMBER)
+--Return FLOAT is 
+--    MIDaYear NUMBER;
+--    MIDbYear NUMBER;
+--
+--BEGIN
+-- SELECT PROD_YEAR INTO MIDaYear
+-- FROM MEDIAITEMS
+-- WHERE MID = MIDa;
+-- 
+-- SELECT PROD_YEAR INTO MIDbYear
+-- FROM MEDIAITEMS
+-- WHERE MID = MIDb;
+-- 
+-- RETURN POWER(MIDaYear - MIDbYear, 2) / maxDist;
+--END;
