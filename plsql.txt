@@ -30,3 +30,16 @@ BEGIN
 	END IF;
 END;
 
+create or replace FUNCTION MaximalDistance
+Return NUMBER is 
+    minYear NUMBER;
+    maxYear NUMBER;
+
+BEGIN
+ SELECT MIN(PROD_YEAR) INTO minYear
+ FROM MEDIAITEMS;
+ SELECT MAX(PROD_YEAR) INTO maxYear
+ FROM MEDIAITEMS;
+ RETURN POWER(maxYear - minYear, 2);
+END;
+
