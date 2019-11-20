@@ -13,3 +13,20 @@ CREATE TABLE Similarity(
     CONSTRAINT FK_MID2MID FOREIGN KEY (MID2) REFERENCES MediaItems(MID),
     CONSTRAINT PK_Similarity PRIMARY KEY (MID1, MID2)
 );
+
+CREATE or REPLACE TRIGGER AutoIncrement
+BEFORE INSERT ON MediaItems 
+FOR EACH ROW
+DECLARE
+	maxMid NUMBER;
+BEGIN
+	:new.TITLE_LENGTH:=LENGTH(:new.TITLE);
+
+	SELECT MAX(MID) INTO maxMid FROM MediaItems;
+	IF maxMid IS NULL THEN
+        :new.MID:= 0;
+	ELSE
+        :new.MID:= maxMid + 1;
+	END IF;
+END;
+
