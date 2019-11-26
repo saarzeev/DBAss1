@@ -12,12 +12,13 @@ import static java.lang.Integer.parseInt;
 import static oracle.jdbc.OracleTypes.NUMBER;
 import static oracle.jdbc.OracleTypes.STRUCT;
 
-public class DB {
+public class Assigment {
     private String userName;
     private String psw;
     private Connection connection;
 
-    public DB(String connectionString, String userName, String psw){
+    //1.2.1.
+    public Assigment(String connectionString, String userName, String psw){
             this.userName = userName;
             this.psw = psw;
             try {
@@ -30,7 +31,8 @@ public class DB {
             }
     }
 
-    public void fileToDataBase(String path) throws SQLException {
+    //1.2.2.
+    public void fileToDataBase(String path) {
 
         String line = "";
         String cvsSplitBy = ",";
@@ -54,6 +56,7 @@ public class DB {
         }
     }
 
+    //1.2.3.
     public void calculateSimilarity(){
         List<Long> filmsRecords = readValues();
         int distance = calcDistance();
@@ -107,7 +110,6 @@ public class DB {
         return -1;
     }
 
-
     private int calcDistance() {
         CallableStatement cs = null;
         try {
@@ -151,6 +153,7 @@ public class DB {
         return mediaItems;
     }
 
+    //1.2.4.
     public void printSimilarItems(long mid) {
         ResultSet rs = null;
         PreparedStatement ps = null;

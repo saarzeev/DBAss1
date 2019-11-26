@@ -2,7 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="8">
-      <module name="DBAss2" target="" />
+      <module name="DBAss1" target="" />
     </bytecodeTargetLevel>
   </component>
 </project>
